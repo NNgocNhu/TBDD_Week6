@@ -22,49 +22,64 @@ export default function Screen4() {
                 </Text>
                 <Image style={{height:25,width:25}} source={require('../assets/Image 177.png')}/> 
     </View>
-    {data.map((item) => {
-      return (
-        
-      <View style = {[{ flex: 3 } ]} key = { item.id } >
-        
+
         <View style={styles.box}>
-          <View style={{flex:1,justifyContent:'center'}}>
-            <Text style = { styles.text1 } > { item.name } </Text>
-            <Text style = { styles.text1 } > { item.nameDrink } </Text> 
+          <View style={{flex:1,justifyContent:'space-between',padding:20}}>
+            <Text style = { styles.text1 } >  CAFE DELIVERY </Text>
+            <Text style = { styles.text1 } >Order #18 </Text> 
           </View>
-          <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',}}>
-            <Text style = { styles.text2 } > { item.price } 
-          </Text> 
+          <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center', paddingRight:20}}>
+            <Text style = { styles.text2 } > $5
+            </Text> 
           </View>
         </View>
-        <View style={styles.box}>
-          <View style={{flex:1,flexDirection:'row'}}>
-            <Image style = {styles.img1} 
-                    source = {{ uri: item.img1 }}/> 
-            <View style={{flexDirection:'column',marginLeft:8}}>
-              <Text style = { styles.text1 } > { item.name } </Text>
-              <View style={{flexDirection:'row',alignItems:'center', marginTop:20}}>
-                <Image style = {styles.img2}  
-                      source = {{ uri: item.img2 }}/>
-                <Text style = { styles.text2 } > { item.price } </Text> 
-            </View>
-            </View>
+        <View style={styles.box2}>
+          <View style={{flex:1,justifyContent:'space-between',padding:20}}>
+            <Text style = { styles.text1 } >  CAFE  </Text>
+            <Text style = { styles.text1 } > Order #18</Text> 
           </View>
-          <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',
-          alignItems:'center'}}>
-            <View >
-            <Image style = {styles.img3} 
-                  source = {{ uri: item.img3 }}/>  </View>
-            <Image style = {styles.img4} 
-                  source = {{ uri: item.img4 }}/>
-          </View>
-          </View>
+          <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center', paddingRight:20}}>
+            <Text style = { styles.text2 } >  $5
+            </Text> 
+        </View>
       </View>
-    
-
-      )
-    })      
-    } 
+     {data.map((item) => {
+                return ( <View style = {[{ flex: 2   } ]} key = { item.id } >
+                  <View style={styles.box1}>
+                    <View style={{flex:1,flexDirection:'row'}}>
+                      <Image style = {styles.img1} 
+                              source = {{ uri: item.img1 }}/> 
+                      <View style={{flexDirection:'column',marginLeft:8}}>
+                        <Text style = { styles.text1B } > { item.name }</Text>
+                        <View style={{flexDirection:'row',alignItems:'center', marginTop:20}}>
+                          <Image style = {styles.img2}  
+                                source = {{ uri: item.img2 }}/>
+                          <Text style = { styles.text2B } > { item.price } </Text> 
+                      </View>
+                      </View>
+                    </View>
+                    <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',
+                    alignItems:'center'}}>
+                      <View >
+                      <Image style = {styles.img3} 
+                            source = {{ uri: item.img3 }}/>  </View>
+                      <Image style = {styles.img4} 
+                            source = {{ uri: item.img4 }}/>
+                    </View>
+                    </View>
+                </View>
+                )
+            }) 
+            
+        } 
+         <View style={{flex:2, justifyContent:'center', alignItems:'center',marginTop:20}}>
+          <TouchableOpacity onPress={() => {
+            navigation.navigate('Screen4')
+          }}
+        style={{height:44,width:347,backgroundColor:'#EFB034',borderRadius:6,padding:10}} >
+              <Text  style={{fontFamily:'Inter', fontSize:16, fontWeight:400, color:'#fff',textAlign:'center'}}>GO TO CART</Text>
+          </TouchableOpacity>
+        </View>
   </View>    
 </ScrollView>
 );
@@ -114,16 +129,51 @@ const styles = StyleSheet.create({
         fonSize: 20,
         fontWeight: 700,
     },
+    text1B: {
+      color:'#171A1F',
+      fontSize:16,
+      fontWeight:500,
+      fontFamily:'Inter',
+  },
+  text2B: {
+      color: "#565E6C",
+      fontFamily: "Inter",
+      fonSize: 12,
+      fontWeight: 400,
+  },
     box: {
-        height: 100,
-        width: 350,
-        borderRadius: 6,
-        borderWidth:1,
-        borderColor:'#BCC1CA',
-        marginTop:20,
-        backgroundColor:'#00BDD6',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
+      flex:2,
+      height: 100,
+      width: 350,
+      borderRadius: 6,
+      borderWidth:1,
+      borderColor:'#BCC1CA',
+      marginTop:20,
+      backgroundColor:'#00BDD6',
+      flexDirection:'row', 
+      justifyContent:'center'
     },
-    
+    box2: {
+      flex:2,
+      height: 100,
+      width: 350,
+      borderRadius: 6,
+      borderWidth:1,
+      borderColor:'#BCC1CA',
+      marginTop:20,
+      backgroundColor:'#8353E2',
+      flexDirection:'row', 
+      justifyContent:'center'
+  },
+    box1:{
+      height: 64,
+      width: 350,
+      borderRadius: 4,
+      borderWidth:1,
+      borderColor:'#BCC1CA',
+      marginTop:25,
+      backgroundColor: 'rgba(255, 255, 255, 0.00)',
+      flexDirection:'row', 
+      justifyContent:'center'
+    }
 });
