@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, Image,ScrollView } from 'react-native';
 
-export default function Screen4() {
+export default function Screen4({navigation}) {
     var [data, setData] = useState([]);
     useEffect(() => {
         fetch("https://65095f9af6553137159b4cbc.mockapi.io/postsa")
@@ -18,14 +18,14 @@ export default function Screen4() {
           }}>
                 <Image style={{height:21,width:21}} source={require('../assets/Frame.png')}/>
                 </TouchableOpacity>
-                <Text style = {styles.text} > Drinks
+                <Text style = {styles.text} >Your orders
                 </Text>
                 <Image style={{height:25,width:25}} source={require('../assets/Image 177.png')}/> 
     </View>
 
         <View style={styles.box}>
           <View style={{flex:1,justifyContent:'space-between',padding:20}}>
-            <Text style = { styles.text1 } >  CAFE DELIVERY </Text>
+            <Text style = { styles.text1 } >CAFE DELIVERY </Text>
             <Text style = { styles.text1 } >Order #18 </Text> 
           </View>
           <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center', paddingRight:20}}>
@@ -35,11 +35,11 @@ export default function Screen4() {
         </View>
         <View style={styles.box2}>
           <View style={{flex:1,justifyContent:'space-between',padding:20}}>
-            <Text style = { styles.text1 } >  CAFE  </Text>
+            <Text style = { styles.text1 } > CAFE  </Text>
             <Text style = { styles.text1 } > Order #18</Text> 
           </View>
           <View style={{flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center', paddingRight:20}}>
-            <Text style = { styles.text2 } >  $5
+            <Text style = { styles.text2 } >  $25
             </Text> 
         </View>
       </View>
@@ -72,12 +72,12 @@ export default function Screen4() {
             }) 
             
         } 
-         <View style={{flex:2, justifyContent:'center', alignItems:'center',marginTop:20}}>
+         <View style={{flex:2, justifyContent:'center', alignItems:'center',marginTop:40}}>
           <TouchableOpacity onPress={() => {
             navigation.navigate('Screen4')
           }}
         style={{height:44,width:347,backgroundColor:'#EFB034',borderRadius:6,padding:10}} >
-              <Text  style={{fontFamily:'Inter', fontSize:16, fontWeight:400, color:'#fff',textAlign:'center'}}>GO TO CART</Text>
+              <Text  style={{fontFamily:'Inter', fontSize:16, fontWeight:400, color:'#fff',textAlign:'center'}}>PAY NOW</Text>
           </TouchableOpacity>
         </View>
   </View>    
@@ -142,25 +142,25 @@ const styles = StyleSheet.create({
       fontWeight: 400,
   },
     box: {
-      flex:2,
+      flex:3,
       height: 100,
       width: 350,
       borderRadius: 6,
       borderWidth:1,
       borderColor:'#BCC1CA',
-      marginTop:20,
+      marginTop:10,
       backgroundColor:'#00BDD6',
       flexDirection:'row', 
       justifyContent:'center'
     },
     box2: {
-      flex:2,
+      flex:3,
       height: 100,
       width: 350,
       borderRadius: 6,
       borderWidth:1,
       borderColor:'#BCC1CA',
-      marginTop:20,
+      marginTop:10,
       backgroundColor:'#8353E2',
       flexDirection:'row', 
       justifyContent:'center'
@@ -171,7 +171,8 @@ const styles = StyleSheet.create({
       borderRadius: 4,
       borderWidth:1,
       borderColor:'#BCC1CA',
-      marginTop:25,
+      marginTop:20,
+      marginBottom:10,
       backgroundColor: 'rgba(255, 255, 255, 0.00)',
       flexDirection:'row', 
       justifyContent:'center'
